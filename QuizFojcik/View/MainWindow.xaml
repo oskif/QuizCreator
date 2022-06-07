@@ -1,0 +1,83 @@
+﻿<Window x:Class="QuizFojcik.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:QuizFojcik"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="562" Width="800">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="FontSize" Value="24"/>
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="6"/>
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="Margin" Value="8"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0"
+                   Background="Azure" >
+            <StackPanel Grid.Column="0" >
+                <Label Content="Pytanie:"/>
+                <TextBox Name="textBox_question"/>
+                <Label Content="Odpowiedź A:"/>
+                <TextBox Name="textBox_A"/>
+                <Label Content="Odpowiedź B:"/>
+                <TextBox Name="textBox_B"/>
+                <Label Content="Odpowiedź C:"/>
+                <TextBox Name="textBox_C"/>
+                <Label Content="Odpowiedź D:"/>
+                <TextBox Name="textBox_D"/>
+            </StackPanel>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CheckBox Name="chckBox_A" Content="A" IsChecked="False" Grid.Column="0"/>
+                <CheckBox Name="chckBox_B" Content="B" IsChecked="False" Grid.Column="1"/>
+                <CheckBox Name="chckBox_C" Content="C" IsChecked="False" Grid.Column="2"/>
+                <CheckBox Name="chckBox_D" Content="D" IsChecked="False" Grid.Column="3"/>
+            </Grid>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Button Name="btn_Add" Content="Dodaj" Click="btn_Add_Click" Grid.Column="0"/>
+                <Button Name="btn_Delete" Content="Usuń" Click="btn_Delete_Click" Grid.Column="1"/>
+                <Button Name="btn_Edit" Content="Edytuj" Click="btn_Edit_Click" Grid.Column="1" Grid.Row="1"/>
+                <Button Name="btn_Save_Edit" Content="Zapisz" Click="btn_Save_Edit_Click" Grid.Column="0" Grid.Row="1" Visibility="Hidden"/>
+            </Grid>
+            <StackPanel>
+                <Label Content="Tytuł quizu:"/>
+                <TextBox Name="textBox_tytul" Margin="5"/>
+                <Button Name="btn_Save" Content="Zapisz" Click="btn_Save_Click"/>
+            </StackPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                
+            </Grid>
+        </StackPanel>
+        <ListBox Name="listbox_question" 
+                 Grid.Column="1"/>
+    </Grid>
+</Window>
